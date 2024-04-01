@@ -1,0 +1,76 @@
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  src: url("/public/fonts/pretendard/Pretendard-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  src: url("/public/fonts/pretendard/Pretendard-Regular.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard";
+}
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+html {
+  font-size: 10px;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+textarea {
+  resize: none;
+}
+main {
+  padding: 40px 32px;
+  margin-bottom: 60px;
+}
+main .container {
+  position: relative;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+.linkText {
+  font-size: 10rem;
+}
+.linkText a {
+  display: block;
+}
+#__next {
+  height: 100%;
+}
+#wrap {
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 160px;
+}
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
+}
+/* 모바일 반응형 */
+@media screen and (max-width: 768px) {
+  main {
+    padding: 20px 32px;
+  }
+}

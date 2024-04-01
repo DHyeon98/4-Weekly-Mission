@@ -1,16 +1,6 @@
 import { atom, selector } from "recoil";
-import { fetchUserData, getUser } from "@/apis/apiShared";
 import { folderContentsData, folderUserData } from "@/apis/apiFolder";
-
-export const profileData = selector({
-  key: "profile",
-  get: getUser,
-});
-
-export const userData = selector({
-  key: "user",
-  get: fetchUserData,
-});
+import { SharedTypes } from "@/types/shared/type";
 
 export const folderUser = selector({
   key: "folderUser",
@@ -38,15 +28,23 @@ export const contentsLink = atom({
   key: "contentsLink",
   default: null,
 });
-export const searchData = atom({
+
+// 검색 기능
+export const searchData = atom<SharedTypes>({
   key: "searchData",
-  default: "",
+  default: {
+    count: 0,
+    id: 0,
+    links: [],
+    name: "",
+    owner: {
+      id: 0,
+      name: "",
+      profileImageSource: "",
+    },
+  },
 });
 export const searchContents = atom({
   key: "searchContents",
   default: [],
-});
-export const searchText = atom({
-  key: "searchText",
-  default: false,
 });

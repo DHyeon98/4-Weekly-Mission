@@ -1,12 +1,10 @@
+import instance from "./axios";
+
 export async function getUser() {
   try {
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/sample/folder`
-    );
-    if (response.ok) {
-      const body = await response.json();
-      return body.folder;
-    }
+    const res = await instance.get(`/api/sample/folder`);
+    const userData = res.data.folder;
+    return userData;
   } catch (error) {
     console.error(error);
   }
@@ -14,13 +12,9 @@ export async function getUser() {
 
 export async function fetchUserData() {
   try {
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/sample/user`
-    );
-    if (response.ok) {
-      const userProfileData = await response.json();
-      return userProfileData;
-    }
+    const res = await instance.get(`/api/sample/user`);
+    const userData = res.data;
+    return userData;
   } catch (error) {
     console.error(error);
   }

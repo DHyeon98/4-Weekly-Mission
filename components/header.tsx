@@ -1,12 +1,9 @@
-import { useRecoilValueLoadable } from "recoil";
 import styled from "styled-components";
-import { userData } from "@/store/store";
 import styles from "@/styles/header.module.css";
 import Link from "next/link";
-
-interface HeaderFixedProps {
-  fixed: boolean;
-}
+import { useEffect, useState } from "react";
+import { fetchUserData } from "@/apis/apiShared";
+import Image from "next/image";
 
 interface Profile {
   email: string;
@@ -19,7 +16,7 @@ interface HeaderProfileProps {
   contents: Profile;
 }
 
-const CommonHeader = styled.header<HeaderFixedProps>`
+const CommonHeader = styled.header<{ fixed: boolean }>`
   position: ${({ fixed }) => (fixed ? "fixed" : "static")};
 `;
 
@@ -27,12 +24,17 @@ function HeaderProfile({ contents }: HeaderProfileProps) {
   return (
     <>
       {contents ? (
-        <Link className="profileText" href="https://www.naver.com/">
-          <img src={contents.profileImageSource} alt="프로필 아이콘" />
+        <Link className={styles.profileText} href="https://www.naver.com/">
+          <Image
+            width={28}
+            height={28}
+            src={contents.profileImageSource}
+            alt="프로필 아이콘"
+          />
           {contents.email}
         </Link>
       ) : (
-        <Link className="login" href="/signin">
+        <Link className={styles.login} href="/signin">
           로그인
         </Link>
       )}
@@ -40,20 +42,17 @@ function HeaderProfile({ contents }: HeaderProfileProps) {
   );
 }
 
-export default function Header({ fixed }: HeaderFixedProps) {
-  const { contents } = useRecoilValueLoadable<HeaderProfileProps>(userData);
+export default function Header({ fixed }: { fixed: boolean }) {
+  const [contents, setContents] = useState();
+  useEffect(() => {
+    fetchUserData().then((data) => setContents(data));
+  });
+  if (!contents) return null;
   return (
     <CommonHeader className={styles.header} fixed={fixed}>
       <div>
         <h1>
-          <Link
-            style={{
-              backgroundImage: `url(${process.env.PUBLIC_URL}/images/logo.png)`,
-            }}
-            href="/"
-          >
-            Linkbrary
-          </Link>
+          <Link href="/">Linkbrary</Link>
         </h1>
         <HeaderProfile contents={contents} />
       </div>

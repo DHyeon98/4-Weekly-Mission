@@ -1,12 +1,10 @@
+import instance from "./axios";
+
 export async function folderUserData() {
   try {
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/users/1`
-    );
-    if (response.ok) {
-      const userProfileData = await response.json();
-      return userProfileData;
-    }
+    const res = await instance.get(`/api/users/1`);
+    const data = res.data;
+    return data;
   } catch (error) {
     console.error(error);
   }

@@ -1,0 +1,11 @@
+.searchTextBox {
+  margin-bottom: 40px;
+}
+.searchTextBox p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #9fa6b2;
+}
+.searchTextBox p strong {
+  color: rgba(55, 55, 64, 1);
+}
