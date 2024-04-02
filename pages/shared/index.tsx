@@ -21,7 +21,7 @@ export async function getStaticProps() {
 export default function Shared({ userData }: { userData: SharedTypes }) {
   const [contents, setContents] = useRecoilState(searchData);
   useEffect(() => {
-    setContents(userData);
+    setContents(userData.links);
   }, []);
   if (!contents) return null;
   return (
@@ -32,7 +32,7 @@ export default function Shared({ userData }: { userData: SharedTypes }) {
         <main>
           <div className="container">
             <SearchInput userData={userData.links} />
-            <SharedContents contents={contents.links} />
+            <SharedContents contents={contents} />
           </div>
         </main>
       </div>

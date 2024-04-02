@@ -1,16 +1,17 @@
 import SharedSVG from "@/public/images/share.svg";
 import PenSVG from "@/public/images/pen.svg";
 import DeleteSVG from "@/public/images/delete.svg";
-import { useRecoilValue } from "recoil";
-import { clickFolder } from "@/store/store";
 import styles from "@/styles/folder/folderTitle.module.css";
+import { useRouter } from "next/router";
 
 export default function FolderTitle() {
-  const clickedFolder = useRecoilValue(clickFolder);
+  const router = useRouter();
+  const { query } = router;
+  const qName = query.name;
   return (
     <div className={styles.folderTitleContainer}>
-      <h2>{clickedFolder}</h2>
-      {clickedFolder === "전체" ? null : (
+      <h2>{!qName ? "전체" : qName}</h2>
+      {!qName ? null : (
         <ul>
           <li>
             <button>
