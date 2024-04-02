@@ -1,8 +1,12 @@
-import { SharedLink } from "@/types/shared/type";
 import styles from "@/styles/card.module.css";
+import { AllFolder } from "@/types/folder/type";
 import Card from "../card";
 
-function SharedContents({ contents }: { contents: SharedLink[] }) {
+export default function FolderContents({
+  contents,
+}: {
+  contents: AllFolder[];
+}) {
   return (
     <article>
       <ul className={styles.contentsBox}>
@@ -10,19 +14,19 @@ function SharedContents({ contents }: { contents: SharedLink[] }) {
           ({
             id,
             title,
-            imageSource,
-            createdAt,
+            image_source,
+            created_at,
             url,
             description,
-          }: SharedLink) => {
+          }: AllFolder) => {
             return (
               <li key={id}>
                 <Card
                   title={title}
                   url={url}
                   description={description}
-                  imageSource={imageSource}
-                  createdAt={createdAt}
+                  imageSource={image_source}
+                  createdAt={created_at}
                 />
               </li>
             );
@@ -32,5 +36,3 @@ function SharedContents({ contents }: { contents: SharedLink[] }) {
     </article>
   );
 }
-
-export default SharedContents;

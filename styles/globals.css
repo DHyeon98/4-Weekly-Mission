@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Pretendard";
   font-weight: 700;
-  src: url("/public/fonts/pretendard/Pretendard-Bold.ttf") format("truetype");
+  src: url("/fonts/pretendard/Pretendard-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Pretendard";
   font-weight: 400;
-  src: url("/public/fonts/pretendard/Pretendard-Regular.ttf") format("truetype");
+  src: url("/fonts/pretendard/Pretendard-Regular.ttf") format("truetype");
 }
 
 * {

@@ -6,6 +6,31 @@ import { SharedLink } from "@/types/shared/type";
 import styles from "@/styles/searchInput.module.css";
 import SearchSVG from "@/public/images/Search.svg";
 import Image from "next/image";
+import ModalEx from "@/pages/modalEx";
+import styled from "styled-components";
+const Search = styled.input`
+  width: 100%;
+  padding: 15px 16px 15px 42px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #f5f5f5;
+  font-size: 1.6rem;
+  color: rgba(102, 102, 102, 1);
+
+  &::placeholder {
+    font-size: 1.6rem;
+    color: rgba(102, 102, 102, 1);
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.4rem;
+    padding: 13px 16px 13px 38px;
+    &::placeholder {
+      font-size: 1.4rem;
+    }
+  }
+`;
 
 function SearchInput({ userData }: { userData: SharedLink[] }) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -67,11 +92,12 @@ function SearchInput({ userData }: { userData: SharedLink[] }) {
             type="button"
             onClick={handleDelete}
           >
-            <Image src={`/images/close.png`} alt="검색어 삭제" />
+            <Image fill src={`/images/close.png`} alt="검색어 삭제" />
           </button>
         ) : null}
       </form>
       {searchValue ? <SearchText searchValues={searchValue} /> : null}
+      <ModalEx />
     </>
   );
 }

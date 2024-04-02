@@ -1,8 +1,9 @@
 export interface SharedLink {
   createdAt: string;
   description: string;
-  id: number;
+  id?: number;
   imageSource?: string;
+  image_source?: string;
   title: string;
   url: string;
 }
