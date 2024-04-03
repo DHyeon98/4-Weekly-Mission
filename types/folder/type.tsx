@@ -1,9 +1,11 @@
 export interface AllFolder {
-  created_at: string;
+  created_at?: string;
+  createdAt?: string;
   description: string;
-  folder_id: string;
+  folder_id?: string;
   id?: number;
   image_source?: string;
+  imageSource?: string;
   title: string;
   updated_at?: string;
   url: string;

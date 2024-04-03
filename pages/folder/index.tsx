@@ -5,12 +5,9 @@ import Header from "@/components/header";
 import { GetServerSidePropsContext } from "next";
 import FolderContents from "@/components/folder/folderContents";
 import SearchInput from "@/components/form/searchInput";
-import FolderTitle from "@/components/folder/folderTitle";
 import AddLink from "@/components/folder/addlink";
 import { AllFolder } from "@/types/folder/type";
-import { useEffect } from "react";
-import { useRecoilState } from "recoil";
-import { searchData } from "@/store/store";
+import { useEffect, useState } from "react";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   let id = context.query.folderId ?? "";
@@ -34,7 +31,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 }
 
 export default function Folder({ folderData }: { folderData: AllFolder[] }) {
-  const [contents, setContents] = useRecoilState(searchData);
+  const [contents, setContents] = useState<AllFolder[]>([]);
   useEffect(() => {
     setContents(folderData);
   }, [folderData]);
@@ -46,7 +43,7 @@ export default function Folder({ folderData }: { folderData: AllFolder[] }) {
         <AddLink />
         <main>
           <div className="container">
-            <SearchInput userData={folderData} />
+            <SearchInput userData={folderData} setContents={setContents} />
             <FolderButton />
             <FolderContents contents={contents} />
           </div>

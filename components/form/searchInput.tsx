@@ -1,6 +1,4 @@
-import { useSetRecoilState } from "recoil";
-import { searchData } from "../../store/store";
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useRef, useState } from "react";
 import SearchText from "./searchText";
 import { SharedLink } from "@/types/shared/type";
 import styles from "@/styles/searchInput.module.css";
@@ -8,15 +6,16 @@ import SearchSVG from "@/public/images/Search.svg";
 import Image from "next/image";
 import ModalEx from "@/pages/modalEx";
 import { AllFolder } from "@/types/folder/type";
+type PropsType = SharedLink[] | AllFolder[];
 interface Props {
-  userData: SharedLink[] | AllFolder[];
+  userData: PropsType;
+  setContents: Dispatch<SetStateAction<PropsType>>;
 }
 
-function SearchInput({ userData }: Props) {
+export default function SearchInput({ userData, setContents }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchText, setSearchText] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  const setContents = useSetRecoilState(searchData);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,7 +33,8 @@ function SearchInput({ userData }: Props) {
         (description && description.includes(searchWord))
       );
     });
-    setContents((prevContents: SharedLink[] | AllFolder[]) => filterContents);
+    console.log(filterContents);
+    setContents(filterContents);
   };
 
   const handleText = (event: ChangeEvent<HTMLInputElement>) => {
@@ -78,5 +78,3 @@ function SearchInput({ userData }: Props) {
     </>
   );
 }
-
-export default SearchInput;

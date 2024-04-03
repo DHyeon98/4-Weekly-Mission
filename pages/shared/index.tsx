@@ -2,12 +2,10 @@ import { getUser } from "@/apis/apiShared";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import UserTitle from "@/components/shared/userTitle";
-import { SharedTypes } from "@/types/shared/type";
+import { SharedLink, SharedTypes } from "@/types/shared/type";
 import SharedContents from "@/components/shared/sharedContents";
 import SearchInput from "@/components/form/searchInput";
-import { useEffect } from "react";
-import { useRecoilState } from "recoil";
-import { searchData } from "@/store/store";
+import { useEffect, useState } from "react";
 
 export async function getStaticProps() {
   const userData = await getUser();
@@ -19,7 +17,7 @@ export async function getStaticProps() {
 }
 
 export default function Shared({ userData }: { userData: SharedTypes }) {
-  const [contents, setContents] = useRecoilState(searchData);
+  const [contents, setContents] = useState<SharedLink[]>([]);
   useEffect(() => {
     setContents(userData.links);
   }, []);
@@ -31,7 +29,7 @@ export default function Shared({ userData }: { userData: SharedTypes }) {
         <UserTitle contents={userData} />
         <main>
           <div className="container">
-            <SearchInput userData={userData.links} />
+            <SearchInput userData={userData.links} setContents={setContents} />
             <SharedContents contents={contents} />
           </div>
         </main>
