@@ -33,7 +33,6 @@ export default function SearchInput({ userData, setContents }: Props) {
         (description && description.includes(searchWord))
       );
     });
-    console.log(filterContents);
     setContents(filterContents);
   };
 
