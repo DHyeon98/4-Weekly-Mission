@@ -1,6 +1,6 @@
-// import { atom } from "recoil";
+import { atom } from "recoil";
 
-// export const searchData = atom({
-//   key: "searchData",
-//   default: [],
-// });
+export const modalToggle = atom({
+  key: "modalToggle",
+  default: false,
+});

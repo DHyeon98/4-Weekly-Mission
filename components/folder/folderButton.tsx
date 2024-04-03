@@ -5,14 +5,19 @@ import styles from "@/styles/folder/folderButton.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import FolderTitle from "./folderTitle";
+import ModalTypeBlue from "./modal/modalTypeBlue";
 interface Props {
   data: FolderList[];
 }
 export default function FolderButton() {
   const [buttonData, setButtonData] = useState<Props>();
+  const [modalName, setModalName] = useState<boolean | string>(false);
   const router = useRouter();
   const { query } = router;
   const qValue = query.folderId;
+  const handleModal = () => {
+    setModalName("folderAdd");
+  };
   useEffect(() => {
     buttonDataApi().then((data) => setButtonData(data));
   }, []);
@@ -36,7 +41,14 @@ export default function FolderButton() {
             );
           })}
         </ul>
-        <button className={styles.addButton}>폴더 추가</button>
+        <button className={styles.addButton} onClick={handleModal}>
+          폴더 추가
+        </button>
+        <ModalTypeBlue
+          name={"폴더 추가"}
+          isOpen={modalName === "folderAdd"}
+          setModalName={setModalName}
+        />
       </div>
       <FolderTitle />
     </>

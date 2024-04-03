@@ -4,8 +4,8 @@ import { SharedLink } from "@/types/shared/type";
 import styles from "@/styles/searchInput.module.css";
 import SearchSVG from "@/public/images/Search.svg";
 import Image from "next/image";
-import ModalEx from "@/pages/modalEx";
 import { AllFolder } from "@/types/folder/type";
+import ModalFolderAdd from "../folder/modal/modalTypeBlue";
 type PropsType = SharedLink[] | AllFolder[];
 interface Props {
   userData: PropsType;
@@ -73,7 +73,6 @@ export default function SearchInput({ userData, setContents }: Props) {
         ) : null}
       </form>
       {searchValue ? <SearchText searchValues={searchValue} /> : null}
-      <ModalEx />
     </>
   );
 }
