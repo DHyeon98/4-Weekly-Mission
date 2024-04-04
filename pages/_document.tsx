@@ -5,8 +5,9 @@ export default function Document() {
     <Html lang="kr">
       <Head>
         <script
-          src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js"
-          integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01"
+          defer
+          src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
+          integrity="sha384-6MFdIr0zOira1CHQkedUqJVql0YtcZA1P0nbPrQYJXVJZUkTk/oX4U9GhUIs3/z8"
           crossOrigin="anonymous"
         ></script>
       </Head>
