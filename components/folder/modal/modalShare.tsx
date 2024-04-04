@@ -28,10 +28,8 @@ export default function ModalShare({
 
   useEffect(() => {
     const { Kakao } = window;
-    if (Kakao) {
-      Kakao.cleanup();
-      Kakao.init(process.env.NEXT_PUBLIC_KAKAO_ID_KEY);
-    }
+    Kakao.cleanup();
+    Kakao.init(process.env.NEXT_PUBLIC_KAKAO_ID_KEY);
   }, []);
   const shareKakao = () => {
     const { Kakao, location } = window;
