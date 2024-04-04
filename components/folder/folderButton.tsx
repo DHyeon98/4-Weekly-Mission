@@ -19,7 +19,9 @@ export default function FolderButton() {
     setModalName("folderAdd");
   };
   useEffect(() => {
-    buttonDataApi().then((data) => setButtonData(data));
+    buttonDataApi()
+      .then((data) => setButtonData(data))
+      .catch((error) => console.log(error));
   }, []);
   if (!buttonData) return null;
   return (
