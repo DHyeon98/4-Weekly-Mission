@@ -19,7 +19,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     folderData = res.data.data;
   } catch {
     return {
-      notFound: false,
+      notFound: true,
     };
   }
 
