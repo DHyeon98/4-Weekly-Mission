@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import ModalTypeBlue from "./modal/modalTypeBlue";
 import { useState } from "react";
 import ModalTypeRed from "./modal/modaltypeRed";
+import ModalShare from "./modal/modalShare";
 
 export default function FolderTitle() {
   const [modalName, setModalName] = useState<string | boolean>(false);
@@ -21,10 +22,15 @@ export default function FolderTitle() {
       {!qName ? null : (
         <ul>
           <li>
-            <button>
+            <button onClick={() => handleModal("folderShare")}>
               <SharedSVG alt="공유" />
               공유
             </button>
+            <ModalShare
+              isOpen={modalName === "folderShare"}
+              modalText={qName}
+              setModalName={setModalName}
+            />
           </li>
           <li>
             <button onClick={() => handleModal("Change")}>

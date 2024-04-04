@@ -97,6 +97,7 @@
   align-items: center;
 }
 .modalCon .modalBox .shareContainer button {
+  position: relative;
   cursor: pointer;
   display: flex;
   flex-direction: column;
