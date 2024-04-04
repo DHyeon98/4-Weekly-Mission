@@ -7,6 +7,7 @@ export default function FolderContents({
 }: {
   contents: AllFolder[];
 }) {
+  if (!contents) return null;
   return (
     <article>
       {contents.length === 0 ? (
