@@ -1,0 +1,42 @@
+.commonInput {
+  position: relative;
+}
+.commonInput input {
+  width: 100%;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccd5e3;
+  line-height: 24px;
+  outline: none;
+  color: #373740;
+  font-family: "Pretendard";
+}
+.commonInput input.error {
+  border: 1px solid #ff5b56;
+}
+.commonInput input:focus {
+  border: 1px solid #6d6afe;
+}
+.commonInput input::placeholder {
+  color: #9fa6b2;
+}
+
+/* 비밀번호 input */
+.passwordInput button {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: none;
+}
+
+/* erro 텍스트 */
+.errorText {
+  font-size: 14px;
+  margin-top: 6px;
+  color: #ff5b56;
+}

@@ -1,11 +1,10 @@
 import { ChangeEvent, Dispatch, SetStateAction, useRef, useState } from "react";
 import SearchText from "./searchText";
 import { SharedLink } from "@/types/shared/type";
-import styles from "@/styles/searchInput.module.css";
+import styles from "@/styles/components/searchInput.module.css";
 import SearchSVG from "@/public/images/Search.svg";
 import Image from "next/image";
 import { AllFolder } from "@/types/folder/type";
-import ModalFolderAdd from "../folder/modal/modalTypeBlue";
 type PropsType = SharedLink[] | AllFolder[];
 interface Props {
   userData: PropsType;

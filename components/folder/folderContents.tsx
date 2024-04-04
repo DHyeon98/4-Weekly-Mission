@@ -1,4 +1,4 @@
-import styles from "@/styles/card.module.css";
+import styles from "@/styles/components/card.module.css";
 import { AllFolder } from "@/types/folder/type";
 import Card from "../card";
 

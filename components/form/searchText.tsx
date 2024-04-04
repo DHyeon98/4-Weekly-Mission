@@ -1,4 +1,4 @@
-import styles from "@/styles/searchText.module.css";
+import styles from "@/styles/components/searchText.module.css";
 
 export default function SearchText({ searchValues }: { searchValues: string }) {
   return (

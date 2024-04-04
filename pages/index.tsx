@@ -8,6 +8,7 @@ export default function Home() {
         <div className="linkText">
           <Link href="/folder">Folder 이동</Link>
           <Link href="/shared">Shared 이동</Link>
+          <Link href="/login">login 이동</Link>
         </div>
       </div>
       <Footer />

@@ -1,9 +1,9 @@
-import styles from "@/styles/card.module.css";
+import styles from "@/styles/components/card.module.css";
 import Image from "next/image";
 import { timeChange, dateChange } from "@/utils/dateFunction";
 import { SharedLink } from "@/types/shared/type";
 import { AllFolder } from "@/types/folder/type";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import KebabModal from "./folder/kebab";
 
 export default function Card({
