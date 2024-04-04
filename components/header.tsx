@@ -46,7 +46,7 @@ export default function Header({ fixed }: { fixed: boolean }) {
   const [contents, setContents] = useState();
   useEffect(() => {
     fetchUserData().then((data) => setContents(data));
-  });
+  }, []);
   if (!contents) return null;
   return (
     <CommonHeader className={styles.header} fixed={fixed}>

@@ -7,7 +7,7 @@ export default function FolderContents({
 }: {
   contents: AllFolder[];
 }) {
-  if (!contents) return <div>로딩중</div>;
+  if (!contents) return null;
   return (
     <article>
       {contents.length === 0 ? (
