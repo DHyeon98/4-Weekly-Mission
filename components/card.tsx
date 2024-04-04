@@ -35,7 +35,7 @@ export default function Card({
         <span>{createdAt && timeChange(createdAt)}</span>
         <p className={styles.description}>{description}</p>
         <p className={styles.date}>{createdAt && dateChange(createdAt)}</p>
-        {kebabOpen ? <KebabModal /> : null}
+        {kebabOpen ? <KebabModal url={url} /> : null}
       </div>
     </a>
   );

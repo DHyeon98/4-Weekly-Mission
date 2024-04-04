@@ -48,6 +48,7 @@ export default function FolderButton() {
           name={"폴더 추가"}
           isOpen={modalName === "folderAdd"}
           setModalName={setModalName}
+          buttonName="추가하기"
         />
       </div>
       <FolderTitle />

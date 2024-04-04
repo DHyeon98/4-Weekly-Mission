@@ -5,14 +5,15 @@ import styles from "@/styles/folder/folderTitle.module.css";
 import { useRouter } from "next/router";
 import ModalTypeBlue from "./modal/modalTypeBlue";
 import { useState } from "react";
+import ModalTypeRed from "./modal/modaltypeRed";
 
 export default function FolderTitle() {
   const [modalName, setModalName] = useState<string | boolean>(false);
   const router = useRouter();
   const { query } = router;
   const qName = query.name;
-  const handleModal = () => {
-    setModalName("Change");
+  const handleModal = (name: string) => {
+    setModalName(name);
   };
   return (
     <div className={styles.folderTitleContainer}>
@@ -26,7 +27,7 @@ export default function FolderTitle() {
             </button>
           </li>
           <li>
-            <button onClick={handleModal}>
+            <button onClick={() => handleModal("Change")}>
               <PenSVG alt="이름 변경" />
               이름 변경
             </button>
@@ -35,13 +36,20 @@ export default function FolderTitle() {
               folderName={qName}
               isOpen={modalName === "Change"}
               setModalName={setModalName}
+              buttonName="변경하기"
             />
           </li>
           <li>
-            <button>
+            <button onClick={() => handleModal("folderDelete")}>
               <DeleteSVG alt="삭제" />
               삭제
             </button>
+            <ModalTypeRed
+              name="폴더 삭제"
+              isOpen={modalName === "folderDelete"}
+              modalText={qName}
+              setModalName={setModalName}
+            />
           </li>
         </ul>
       )}

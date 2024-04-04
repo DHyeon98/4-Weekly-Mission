@@ -3,18 +3,16 @@ import styles from "@/styles/folder/modal/modal.module.css";
 import CloseSVG from "@/public/images/close.svg";
 import { Dispatch, SetStateAction } from "react";
 
-export default function ModalTypeBlue({
+export default function ModalTypeRed({
   name,
   isOpen,
-  folderName,
+  modalText,
   setModalName,
-  buttonName,
 }: {
   name: string;
   isOpen: boolean;
-  folderName?: string | string[];
+  modalText: string | string[];
   setModalName: Dispatch<SetStateAction<boolean | string>>;
-  buttonName: string;
 }) {
   const handelClose = () => {
     setModalName(false);
@@ -27,16 +25,10 @@ export default function ModalTypeBlue({
           <button className={styles.deleteModal} onClick={handelClose}>
             <CloseSVG alt="닫기 버튼" />
           </button>
-          <form>
-            {folderName ? (
-              <input type="text" defaultValue={folderName} />
-            ) : (
-              <input type="text" placeholder="내용 입력" />
-            )}
-            <button type="button" className={styles.addButton}>
-              {buttonName}
-            </button>
-          </form>
+          <p className={styles.modalText}>{modalText}</p>
+          <button type="button" className={`${styles.addButton} ${styles.red}`}>
+            삭제하기
+          </button>
         </div>
       </div>
     </ModalPortal>
