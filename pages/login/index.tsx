@@ -1,9 +1,5 @@
-import LoginInput from "@/components/form/loginInput";
+import LoginForm from "@/components/form/loginForm";
 import styles from "@/styles/login/login.module.css";
 export default function Login() {
-  return (
-    <form className={styles.loginForm}>
-      <LoginInput />
-    </form>
-  );
+  return <LoginForm />;
 }

@@ -19,17 +19,3 @@ export async function buttonDataApi() {
     console.error(error);
   }
 }
-
-export async function folderLinksData(folderId: string) {
-  const url =
-    folderId === "all"
-      ? `/api/users/1/links`
-      : `/api/users/1/links?folderId=${folderId}`;
-  try {
-    const response = await instance.get(url);
-    const folderData = response.data;
-    return folderData;
-  } catch (error) {
-    console.error(error);
-  }
-}
