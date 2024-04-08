@@ -2,10 +2,13 @@
   background-color: #f0f6ff;
   height: 100%;
 }
-.loginForm {
+.loginBox {
   max-width: 400px;
   margin: 0 auto;
   padding-top: 238px;
+}
+.loginForm {
+  margin-top: 30px;
 }
 .commonInput {
   position: relative;

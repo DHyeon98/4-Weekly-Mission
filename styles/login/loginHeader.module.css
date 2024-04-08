@@ -1,0 +1,19 @@
+.loginHeader {
+  text-align: center;
+}
+.loginHeaderImg {
+  position: relative;
+  width: 210.5px;
+  height: 38px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+.loginHeader p {
+  font-size: 16px;
+}
+.loginHeader p a {
+  margin-left: 8px;
+  color: rgba(109, 106, 254, 1);
+  font-weight: 600;
+  text-decoration: underline;
+}

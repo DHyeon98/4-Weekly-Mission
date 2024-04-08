@@ -1,0 +1,25 @@
+.loginFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 24px;
+  margin-top: 32px;
+  background-color: #e7effb;
+  border-radius: 8px;
+  border: 1px solid #ccd5e3;
+}
+.loginFooter p {
+  font-size: 14px;
+  color: #373740;
+}
+.loginFooter ul {
+  display: flex;
+  gap: 16px;
+}
+.loginFooter ul li a {
+  display: block;
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
