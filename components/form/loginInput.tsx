@@ -1,5 +1,5 @@
 import styles from "@/styles/login/input.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RegisterOptions, useForm } from "react-hook-form";
 import ButtonToggle from "./buttonToggle";
 interface InputFieldProps {
@@ -8,6 +8,7 @@ interface InputFieldProps {
   type: string;
   placeholder: string;
   validation?: RegisterOptions;
+  handleBlur?: (data: string) => Promise<void>;
 }
 export default function LoginInput({
   name,
@@ -21,7 +22,10 @@ export default function LoginInput({
   const {
     register,
     formState: { errors },
+    watch,
+    getValues,
   } = useForm({ mode: "onBlur" });
+
   return (
     <>
       <div className={styles.commonInput}>
@@ -30,7 +34,7 @@ export default function LoginInput({
           <input
             className={errors[name]?.message ? styles.error : ""}
             {...register(name, validation)}
-            type={type}
+            type={buttonToggle ? type : "text"}
             placeholder={placeholder}
           />
           {type === "password" ? (

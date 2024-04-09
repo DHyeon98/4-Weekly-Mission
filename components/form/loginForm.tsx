@@ -11,8 +11,6 @@ export default function LoginForm() {
     shouldFocusError: false,
     mode: "onBlur",
   });
-  const emailRegex =
-    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   async function onLogin(data: LoginType) {
     try {
@@ -36,7 +34,8 @@ export default function LoginForm() {
             message: "이메일을 입력해 주세요",
           },
           pattern: {
-            value: emailRegex,
+            value:
+              /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
             message: "올바른 이메일 주소가 아닙니다.",
           },
         }}

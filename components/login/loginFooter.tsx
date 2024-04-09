@@ -2,10 +2,10 @@ import styles from "@/styles/login/loginFooter.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function LoginFooter() {
+export default function LoginFooter({ type }: { type: string }) {
   return (
     <div className={styles.loginFooter}>
-      <p>소셜 로그인</p>
+      <p>{type === "signIn" ? "소셜 로그인" : "다른 방법으로 가입하기"}</p>
       <ul>
         <li>
           <Link href={"https://www.google.com"} target="_blank">

@@ -14,7 +14,7 @@ export default function Login() {
       <div className={styles.loginBox}>
         <LoginHeader type="signIn" />
         <LoginForm />
-        <LoginFooter />
+        <LoginFooter type="signIn" />
       </div>
     </div>
   );
