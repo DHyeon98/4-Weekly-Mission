@@ -3,11 +3,7 @@ import { useForm } from "react-hook-form";
 import { EmailCheckApi, SignUpType, signupData } from "@/apis/apiLogin";
 import ButtonToggle from "./buttonToggle";
 import { useState } from "react";
-import { useRouter } from "next/router";
 export default function SignUpForm() {
-  // 라우터
-  const router = useRouter();
-
   // password input 버튼 변수
   const [passwordButton, setPasswordButton] = useState(true);
   const [pwfirmButton, setPwfirmButton] = useState(true);
@@ -28,10 +24,7 @@ export default function SignUpForm() {
   async function onSignup(signUpData: SignUpType) {
     try {
       const result = await signupData(signUpData);
-      console.log(result);
-      if (result.status == 200) {
-        router.push("/folder");
-      }
+      localStorage.setItem("accessToken", result.data.accessToken);
     } catch (error) {
       setError("email", { message: "이메일을 확인해 주세요." });
       setError("password", { message: "비밀번호를 확인해 주세요." });
