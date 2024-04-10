@@ -16,7 +16,7 @@ export default function UserTitle({ contents }: { contents: SharedTypes }) {
           <p>{contents?.owner?.name}</p>
         </div>
         <div className={styles.titleBottom}>
-          <h2>{contents?.name}</h2>
+          <h2>{contents.name}</h2>
         </div>
       </div>
     </article>

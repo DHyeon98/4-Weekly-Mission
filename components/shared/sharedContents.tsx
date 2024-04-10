@@ -6,7 +6,7 @@ function SharedContents({ contents }: { contents: SharedLink[] }) {
   return (
     <article>
       <ul className={styles.contentsBox}>
-        {contents?.map(
+        {contents.map(
           ({
             id,
             title,

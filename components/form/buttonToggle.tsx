@@ -11,9 +11,19 @@ export default function ButtonToggle({ buttonToggle, setButtonToggle }: Props) {
   return (
     <button type="button" onClick={handleButtonToggle}>
       {buttonToggle ? (
-        <Image fill src={"/images/eyeOff.png"} alt="비밀번호 가리기" />
+        <Image
+          fill
+          sizes="width: 16px"
+          src={"/images/eyeOff.png"}
+          alt="비밀번호 가리기"
+        />
       ) : (
-        <Image fill src={"/images/eyeOn.png"} alt="비밀번호 보이기" />
+        <Image
+          fill
+          sizes="width: 16px"
+          src={"/images/eyeOn.png"}
+          alt="비밀번호 보이기"
+        />
       )}
     </button>
   );

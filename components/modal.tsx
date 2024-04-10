@@ -15,13 +15,13 @@ const ModalPortal = ({
     return () => setMounted(false);
   }, []);
 
-  if (typeof window === "undefined") return <></>;
   if (!isOpen) return null;
-  return mounted ? (
-    createPortal(children, document.getElementById("modal-root") as HTMLElement)
-  ) : (
-    <></>
-  );
+  return mounted
+    ? createPortal(
+        children,
+        document.getElementById("modal-root") as HTMLElement
+      )
+    : null;
 };
 
 export default ModalPortal;
