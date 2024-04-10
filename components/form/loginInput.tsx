@@ -1,5 +1,5 @@
 import styles from "@/styles/login/input.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RegisterOptions, useForm } from "react-hook-form";
 import ButtonToggle from "./buttonToggle";
 interface InputFieldProps {
@@ -23,7 +23,6 @@ export default function LoginInput({
     register,
     formState: { errors },
     watch,
-    getValues,
   } = useForm({ mode: "onBlur" });
 
   return (
@@ -46,6 +45,31 @@ export default function LoginInput({
         </div>
         <p className={styles.errorText}>{errors[name]?.message?.toString()}</p>
       </div>
+      {name === "signupPassword" ? (
+        <div className={styles.commonInput}>
+          <label>비밀번호 확인</label>
+          <div style={{ position: "relative" }}>
+            <input
+              className={errors.pwfirm?.message ? styles.error : ""}
+              {...register("pwfirm", {
+                required: "비밀번호를 입력해 주세요",
+                validate: (value) =>
+                  value === watch("password") ||
+                  "비밀번호가 일치하지 않습니다.",
+              })}
+              type={buttonToggle ? "password" : "text"}
+              placeholder="비밀번호와 일치하는 값을 입력해 주세요."
+            />
+            <ButtonToggle
+              buttonToggle={buttonToggle}
+              setButtonToggle={setButtonToggle}
+            />
+          </div>
+          <p className={styles.errorText}>
+            {errors[name]?.message?.toString()}
+          </p>
+        </div>
+      ) : null}
     </>
   );
 }

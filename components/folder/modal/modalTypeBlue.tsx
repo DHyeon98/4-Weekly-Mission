@@ -13,11 +13,11 @@ export default function ModalTypeBlue({
   name: string;
   isOpen: boolean;
   folderName?: string | string[];
-  setModalName: Dispatch<SetStateAction<boolean | string>>;
+  setModalName: Dispatch<SetStateAction<string>>;
   buttonName: string;
 }) {
   const handelClose = () => {
-    setModalName(false);
+    setModalName("");
   };
   return (
     <ModalPortal isOpen={isOpen}>

@@ -5,6 +5,7 @@
 .loginBox {
   max-width: 400px;
   margin: 0 auto;
+  padding: 0 32px;
   padding-top: 238px;
 }
 .loginForm {
@@ -70,4 +71,15 @@
   font-size: 14px;
   margin-top: 6px;
   color: #ff5b56;
+}
+
+@media screen and (max-width: 1024px) {
+  .loginBox {
+    padding-top: 200px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .loginBox {
+    padding-top: 120px;
+  }
 }

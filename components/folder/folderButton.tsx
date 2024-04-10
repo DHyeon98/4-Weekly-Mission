@@ -11,7 +11,7 @@ interface Props {
 }
 export default function FolderButton() {
   const [buttonData, setButtonData] = useState<Props>();
-  const [modalName, setModalName] = useState<boolean | string>(false);
+  const [modalName, setModalName] = useState<string>("");
   const router = useRouter();
   const { query } = router;
   const qValue = query.folderId;

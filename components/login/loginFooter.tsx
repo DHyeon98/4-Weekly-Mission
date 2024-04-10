@@ -9,12 +9,22 @@ export default function LoginFooter({ type }: { type: string }) {
       <ul>
         <li>
           <Link href={"https://www.google.com"} target="_blank">
-            <Image fill src={"/images/google.png"} alt="구글로 로그인" />
+            <Image
+              fill
+              sizes="width: 42px"
+              src={"/images/google.png"}
+              alt="구글로 로그인"
+            />
           </Link>
         </li>
         <li>
           <Link href={"https://www.kakaocorp.com/page"} target="_blank">
-            <Image fill src={"/images/kakao.png"} alt="카카오로 로그인" />
+            <Image
+              fill
+              sizes="width: 42px"
+              src={"/images/kakao.png"}
+              alt="카카오로 로그인"
+            />
           </Link>
         </li>
       </ul>

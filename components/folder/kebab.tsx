@@ -4,7 +4,7 @@ import { useState } from "react";
 import ModalLinkAdd from "./modal/modalLinkAdd";
 
 export default function KebabModal({ url }: { url: string }) {
-  const [modalName, setModalName] = useState<string | boolean>(false);
+  const [modalName, setModalName] = useState<string>("");
   const handleModal = (
     event: React.MouseEvent<HTMLButtonElement>,
     name: string

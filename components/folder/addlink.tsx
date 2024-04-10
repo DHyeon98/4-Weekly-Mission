@@ -5,7 +5,7 @@ import LinkSVG from "@/public/images/link.svg";
 import ModalLinkAdd from "./modal/modalLinkAdd";
 
 export default function AddLink() {
-  const [modalName, setModalName] = useState<boolean | string>(false);
+  const [modalName, setModalName] = useState<string>("");
   const refValue = useRef<HTMLInputElement>(null);
   const handleModal = () => {
     if (refValue.current) {

@@ -3,12 +3,15 @@ import LoginHeader from "@/components/login/loginHeader";
 import LoginFooter from "@/components/login/loginFooter";
 import styles from "@/styles/login/input.module.css";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 export default function Login() {
   const router = useRouter();
 
-  // if (localStorage.getItem("accessToken")) {
-  //   router.push("/folder");
-  // }
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      router.push("/folder");
+    }
+  }, []);
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>

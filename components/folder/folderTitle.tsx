@@ -9,7 +9,7 @@ import ModalTypeRed from "./modal/modaltypeRed";
 import ModalShare from "./modal/modalShare";
 
 export default function FolderTitle() {
-  const [modalName, setModalName] = useState<string | boolean>(false);
+  const [modalName, setModalName] = useState<string>("");
   const router = useRouter();
   const { query } = router;
   const qName = query.name;

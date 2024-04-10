@@ -12,12 +12,12 @@ export default function ModalLinkAdd({
 }: {
   isOpen: boolean;
   url: string;
-  setModalName: Dispatch<SetStateAction<boolean | string>>;
+  setModalName: Dispatch<SetStateAction<string>>;
 }) {
   const [folder, setFolder] = useState([]);
   const [check, setCheck] = useState("");
   const handelClose = () => {
-    setModalName(false);
+    setModalName("");
   };
   const handleCheck = (name: string) => {
     setCheck(name);

@@ -8,7 +8,13 @@ export default function LoginHeader({ type }: { type: string }) {
   return (
     <div className={styles.loginHeader}>
       <div className={styles.loginHeaderImg}>
-        <Image fill src="/images/loginLogo.png" alt="linkbrary" />
+        <Image
+          fill
+          sizes="width: 210.5px "
+          src="/images/loginLogo.png"
+          alt="linkbrary"
+          priority
+        />
       </div>
       <p>
         {type === "signIn" ? "회원이 아니신가요?" : "이미 회원이신가요?"}

@@ -10,7 +10,7 @@ export default function ModalShare({
 }: {
   modalText: string | string[];
   isOpen: boolean;
-  setModalName: Dispatch<SetStateAction<boolean | string>>;
+  setModalName: Dispatch<SetStateAction<string>>;
 }) {
   const resultUrl = window.location.href;
   const handleCopyClipBoard = async () => {
@@ -47,7 +47,7 @@ export default function ModalShare({
     });
   };
   const handelClose = () => {
-    setModalName(false);
+    setModalName("");
   };
   return (
     <ModalPortal isOpen={isOpen}>

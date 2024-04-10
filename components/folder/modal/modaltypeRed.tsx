@@ -12,10 +12,10 @@ export default function ModalTypeRed({
   name: string;
   isOpen: boolean;
   modalText: string | string[];
-  setModalName: Dispatch<SetStateAction<boolean | string>>;
+  setModalName: Dispatch<SetStateAction<string>>;
 }) {
   const handelClose = () => {
-    setModalName(false);
+    setModalName("");
   };
   return (
     <ModalPortal isOpen={isOpen}>
